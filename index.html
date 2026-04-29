@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aarushi and Kartik</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="locked">
+
+    <div id="enter-screen">
+        <div id="entry-text">
+            <h2>For Aarushi</h2>
+            <p>click to enter</p>
+        </div>
+
+        <div id="pin-screen" class="hidden">
+            <h2>Enter PIN</h2>
+            <div class="pin-display">
+                <span class="pin-dot"></span>
+                <span class="pin-dot"></span>
+                <span class="pin-dot"></span>
+                <span class="pin-dot"></span>
+            </div>
+            <div class="numpad">
+                <button class="num-btn" data-val="1">1</button>
+                <button class="num-btn" data-val="2">2</button>
+                <button class="num-btn" data-val="3">3</button>
+                <button class="num-btn" data-val="4">4</button>
+                <button class="num-btn" data-val="5">5</button>
+                <button class="num-btn" data-val="6">6</button>
+                <button class="num-btn" data-val="7">7</button>
+                <button class="num-btn" data-val="8">8</button>
+                <button class="num-btn" data-val="9">9</button>
+                <button class="num-btn action-btn" data-val="C">C</button>
+                <button class="num-btn" data-val="0">0</button>
+                <button class="num-btn action-btn" data-val="B">⌫</button>
+            </div>
+        </div>
+    </div>
+
+    <audio id="bg-music" loop>
+        <source src="assets/song.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="volume-container" class="hidden">
+        <button id="mute-btn">
+            <svg id="sound-on-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            </svg>
+            <svg id="sound-off-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <line x1="23" y1="9" x2="17" y2="15"></line>
+                <line x1="17" y1="9" x2="23" y2="15"></line>
+            </svg>
+        </button>
+        <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.5">
+    </div>
+
+    <div id="days-counter" class="hidden">
+        <svg viewBox="0 0 24 24" fill="var(--rose-gold)" stroke="var(--rose-gold)" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+            </path>
+        </svg>
+        <span><b id="days-count">0</b> days</span>
+    </div>
+
+    <div class="aurora-container">
+        <div class="aurora-blob blob-1"></div>
+        <div class="aurora-blob blob-2"></div>
+        <div class="aurora-blob blob-3"></div>
+        <div class="aurora-blob blob-4"></div>
+    </div>
+
+    <div id="particles"></div>
+
+    <header>
+        <h1>Aarushi and Kartik</h1>
+        <p>12 May 2023 — present</p>
+    </header>
+
+    <div id="scroll-container">
+        <div id="sticky-wrapper">
+            <div id="timeline-track">
+
+                <div class="timeline-line-container">
+                    <div class="timeline-line"></div>
+                </div>
+
+                <div class="node phase-1">
+                    <div class="card">
+                        <img src="assets/node1.png" alt="13 May 2022">
+                        <p>Our first ever message</p>
+                    </div>
+                    <div class="dot"></div>
+                    <div class="date">13 May 2022</div>
+                </div>
+
+                <div class="node phase-1" style="margin-left: 12vw;">
+                    <div class="card text-only">
+                        <p>We have talked every single day since this day</p>
+                    </div>
+                    <div class="dot"></div>
+                    <div class="date">11 Nov 2022</div>
+                </div>
+
+                <div class="node phase-1" style="margin-left: 12vw;">
+                    <div class="card text-only">
+                        <p>The first time we held hands</p>
+                    </div>
+                    <div class="dot"></div>
+                    <div class="date">14 Nov 2022</div>
+                </div>
+
+                <div class="node phase-1" style="margin-left: 12vw;">
+                    <div class="card">
+                        <img src="assets/node4.png" alt="8 Dec 2022">
+                        <p>The first time you said ly</p>
+                    </div>
+                    <div class="dot"></div>
+                    <div class="date">8 Dec 2022</div>
+                </div>
+
+                <div class="node phase-1" style="margin-left: 12vw;">
+                    <div class="card text-only">
+                        <p>Christmas party, sitting by the pool and then hugging for so long</p>
+                    </div>
+                    <div class="dot"></div>
+                    <div class="date">26 Dec 2022</div>
+                </div>
+
+                <div class="node phase-1" style="margin-left: 12vw;">
+                    <div class="card">
+                        <img src="assets/node6.png" alt="29 Dec 2022">
+                        <p>The first time i called you my sushi</p>
+                    </div>
+                    <div class="dot"></div>
+                    <div class="date">29 Dec 2022</div>
+                </div>
+
+                <div class="node phase-1" style="margin-left: 12vw;">
+                    <div class="card text-only">
+                        <p>The first time you called me your koala</p>
+                    </div>
+                    <div class="dot"></div>
+                    <div class="date">4 Jan 2023</div>
+                </div>
+
+                <div class="node phase-1" style="margin-left: 12vw;">
+                    <div class="card">
+                        <img src="assets/node8.png" alt="7 Jan 2023">
+                        <p>The first time i said ly</p>
+                    </div>
+                    <div class="dot"></div>
+                    <div class="date">7 Jan 2023</div>
+                </div>
+
+                <div class="node phase-1" style="margin-left: 12vw;">
+                    <div class="card">
+                        <img src="assets/node9.png" alt="29 Mar 2023">
+                        <p>The first movie we watched together in a theatre</p>
+                    </div>
+                    <div class="dot"></div>
+                    <div class="date">29 Mar 2023</div>
+                </div>
+
+                <div class="node phase-1" style="margin-left: 12vw;">
+                    <div class="card text-only">
+                        <p>The day we almost had our first kiss at vivaans party</p>
+                    </div>
+                    <div class="dot"></div>
+                    <div class="date">1 Apr 2023</div>
+                </div>
+
+                <div class="node phase-1" style="margin-left: 12vw;">
+                    <div class="card text-only">
+                        <p>The day we cuddled for the first time ever at saumya's house</p>
+                    </div>
+                    <div class="dot"></div>
+                    <div class="date">8 Apr 2023</div>
+                </div>
+
+                <div class="node phase-1" style="margin-left: 12vw;">
+                    <div class="card text-only">
+                        <p>Our first kiss.</p>
+                    </div>
+                    <div class="dot"></div>
+                    <div class="date">29 Apr 2023</div>
+                </div>
+
+                <div class="node phase-1" style="margin-left: 12vw;">
+                    <div class="card text-only">
+                        <p>when we kissed on the stairs on kashyap's birthday</p>
+                    </div>
+                    <div class="dot"></div>
+                    <div class="date">30 Apr 2023</div>
+                </div>
+
+                <div class="node phase-1" style="margin-left: 12vw;">
+                    <div class="card text-only">
+                        <p>when i first confessed all my feelings to you on call</p>
+                    </div>
+                    <div class="dot"></div>
+                    <div class="date">6 May 2023</div>
+                </div>
+
+                <div class="node phase-2" style="margin-left: 12vw;">
+                    <div class="card text-only">
+                        <p>When we finally started dating</p>
+                    </div>
+                    <div class="dot pulse"></div>
+                    <div class="date highlight">12 May 2023</div>
+                </div>
+
+                <div class="node special-node" id="secret-diamond" style="margin-left: 15vw;">
+                    <div class="secret-card" id="secret-message">
+                        <p>This was during JEE, when we couldn’t meet as much. But that doesn’t mean this time meant
+                            nothing… we actually learned a lot through it. <br>And I loved the moments we did get,like
+                            holding hands in class (when we were in the same batch) and making out on the stairs hehe
+                            (even if we got caught a few times 💀).</p>
+                    </div>
+                    <div class="diamond-dot"></div>
+                </div>
+
+                <div class="node phase-3" style="margin-left: 15vw;">
+                    <div class="card">
+                        <img src="assets/node16.png" alt="21 Jan 2024">
+                        <p>The first time i gave you flowers</p>
+                    </div>
+                    <div class="dot"></div>
+                    <div class="date">21 Jan 2024</div>
+                </div>
+
+                <div class="node phase-3" style="margin-left: 12vw;">
+                    <div class="card">
+                        <img src="assets/node17.png" alt="24 Jun 2025">
+                        <p>when we got drunk and made out at toy boy</p>
+                    </div>
+                    <div class="dot"></div>
+                    <div class="date">24 Jun 2025</div>
+                </div>
+
+                <div class="node phase-3" style="margin-left: 12vw;">
+                    <div class="card">
+                        <img src="assets/node18.png" alt="23 Jul 2025">
+                        <p>Our first proper date</p>
+                    </div>
+                    <div class="dot"></div>
+                    <div class="date">23 Jul 2025</div>
+                </div>
+
+                <div style="width: 30vw;"></div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="starting-sequence">
+        <h2 class="start-text">scroll to view</h2>
+    </div>
+
+    <div class="ending-sequence">
+        <h2 class="end-text">and i see forever in your eyes</h2>
+    </div>
+
+    <nav id="overlay-tabs">
+        <div class="tab" data-target="panel-gallery">our best moments</div>
+        <div class="tab" data-target="panel-note">a note to you</div>
+        <div class="tab" data-target="panel-things">things i love</div>
+    </nav>
+
+    <div id="overlay-panels">
+
+        <div class="panel" id="panel-gallery">
+            <div class="panel-content camera-roll-panel">
+                <button class="close-btn">×</button>
+                <div class="film-strip">
+                    <button class="slide-nav prev-btn">❮</button>
+                    <div class="slide-container" id="slideshow-container">
+                    </div>
+                    <button class="slide-nav next-btn">❯</button>
+                </div>
+                <p class="slide-counter"><span id="current-slide-num">1</span> / 20</p>
+            </div>
+        </div>
+
+        <div class="panel" id="panel-note">
+            <div class="panel-content text-panel">
+                <button class="close-btn">×</button>
+                <h2>To my favorite person,</h2>
+                <p>I love you so much 🥺. It has been 3 years of us dating now, that is...1096 days of us. 1096 is crazy
+                    tbh... On one hand these 3 years felt like nothing but on the other hand it feels like we were
+                    always together. I can not remember what life was like without you.
+                    <br><br>
+
+                    You are perfect pata hai. I am very very lucky that i get to call you mine. I am so glad that 10th
+                    grade Aarushi and 10th grade Kartik decided to hold hands randomly during civics class, because that
+                    is what started it all and that is what gave us this. <br><br>
+
+
+                    Thank you for being with me. For always being here for me, and with me. For just being you. I love
+                    that we’re always there for each other, no matter what. And I love that even after everything, all
+                    of the ups and downs in our relationship, our love just keeps growing.<br><br>
+
+                    I love you so fucking much. I am always gonna be here for you yk. Always. <br><br>
+
+
+
+                    "I've heard of a love that comes once in a lifetime <br>
+                    And I'm pretty sure that you are that love of mine" <br>
+                    -me (and dandelions apparently😝)
+
+                </p> <br>
+                <p>Lots and lots of love,<br>Your Kartik</p>
+            </div>
+        </div>
+
+        <div class="panel" id="panel-things">
+            <div class="panel-content list-panel">
+                <button class="close-btn">×</button>
+                <ul>
+                    <li> - Your eyes</li>
+                    <li> - Your smile</li>
+                    <li> - Your body</li>
+                    <li> - Your voice</li>
+                    <li> - Your personality</li>
+                    <li> - You always being here for me no matter what</li>
+                    <li> - You listening to everything i have to say</li>
+                    <li> - You letting me annoy you </li>
+                    <li> - Talking to you and VCing with you every day</li>
+                    <li> - That i get to call you mine</li>
+                    <li> - Holding hands</li>
+                    <li> - Making out with you on stairs</li>
+                    <li> - Doing stuff with you</li>
+                    <li> - You</li>
+                    <li> - Us</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
